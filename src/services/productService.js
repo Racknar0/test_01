@@ -4,7 +4,6 @@ const axiosClient = UseAxios();
 const url = '/posts';
 
 const getAllPost = async () => {
-    
     try {
         const response = await axiosClient.get(url);
         //console.log('response----------', response.data);
@@ -13,6 +12,26 @@ const getAllPost = async () => {
         console.log('error', error);
     }
 };
+
+const addPost = async (post) => {
+    try {
+        const response = await axiosClient.post(url, post);
+        console.log('response----------', response.data);
+        return response.data;
+    } catch (error) {
+        console.log('error', error);
+    }
+};
+
+const updatePost = async (post) => {
+    try {
+        const response = await axiosClient.put(`${url}/${post.id}`, post);
+        return response.data;
+    } catch (error) {
+        console.log('error', error);
+    }
+};
+
 
 /* const getProduct = async (id) => {
     try {
@@ -23,23 +42,9 @@ const getAllPost = async () => {
     }
 };
 
-const addProduct = async (product) => {
-    try {
-        const response = await axiosClient.post(url, product);
-        return response.data;
-    } catch (error) {
-        console.log('error', error);
-    }
-};
 
-const updateProduct = async (product) => {
-    try {
-        const response = await axiosClient.put(`${url}/${product.id}`, product);
-        return response.data;
-    } catch (error) {
-        console.log('error', error);
-    }
-};
+
+
 
 const deleteProduct = async (id) => {
     try {
@@ -50,4 +55,4 @@ const deleteProduct = async (id) => {
     }
 }; */
 
-export { getAllPost/* , getProduct, addProduct, updateProduct, deleteProduct */ };
+export { getAllPost, addPost , updatePost/* , getProduct, , updateProduct, deleteProduct */ };

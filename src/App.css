@@ -1,0 +1,66 @@
+.btn {
+    width: 100%;
+}
+
+.btn.btn-edit {
+    background-color: #f0ad4e;
+    border-color: #eea236;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.btn.btn-edit:hover {
+    background-color: #ec971f;
+    border-color: #d58512;
+    color: #fff;
+}
+
+.btn.btn-delete {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.btn.btn-success{
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}

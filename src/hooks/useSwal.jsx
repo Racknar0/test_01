@@ -1,14 +1,14 @@
 import Swal from 'sweetalert2';
 
 export const useSwal = () => {
-    const error = (type, title, text, timer) => {
+    const error = (type, title, text) => {
         Swal.fire({
             position: 'center',
             icon: type,
             title,
             text,
             showConfirmButton: false,
-            timer,
+            timer: 1500,
         });
     };
 

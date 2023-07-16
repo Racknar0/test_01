@@ -12,11 +12,13 @@ export const useSwal = () => {
         });
     };
 
-    const success = (message) => {
+    const success = (message, timer) => {
         Swal.fire({
             icon: 'success',
             title: 'Success',
             text: message,
+            showConfirmButton: false,
+            timer: timer || 1500,
         });
     };
 

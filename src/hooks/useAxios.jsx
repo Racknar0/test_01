@@ -7,12 +7,10 @@ export const UseAxios = () => {
     const swal = useSwal();
 
     const axiosClient = () => {
-        const axiosInstance = axios.create({ baseURL: "https://jsonplaceholder.typicode.com/" });
+        const axiosInstance = axios.create({ baseURL: import.meta.env.VITE_BASE_URL });
 
         axiosInstance.interceptors.request.use(
             (req) => {
-                //req.headers.common['Content-Type'] = 'application/json';
-                // req.headers.common['Authorization'] = getSession('accessToken');
                 return req;
             },
             (err) => {
@@ -21,7 +19,6 @@ export const UseAxios = () => {
         );
         axiosInstance.interceptors.response.use(
             (res) => {
-                // console.log('01 - res', res);
                 return res;
             },
             (err) => {
@@ -65,7 +62,6 @@ export const UseAxios = () => {
     const get = async (url) => {
         try {
             const response = await axiosClient().get(url);
-            // console.log('02 - response', response);
             return response;
         } catch (err) {
             return err;

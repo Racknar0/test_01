@@ -1,16 +1,17 @@
 import PropTypes from 'prop-types';
 import { useContext, useState } from 'react';
 import { apiContext } from '../context/apiContext';
+import { deletePost } from "../services/productService"
+import { useSwal } from '../hooks/useSwal';
 
 const Datatable = ({ posts, setType }) => {
-    const { setPostID, setUserID, setTitle, setBody, resetForm } = useContext(apiContext);
+
+    const swal = useSwal();
+
+    const { setPostID, setUserID, setTitle, setBody, resetForm, setPosts } = useContext(apiContext);
 
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
-
-    const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
-    };
 
     const lastIndex = currentPage * itemsPerPage;
     const firstIndex = lastIndex - itemsPerPage;
@@ -21,6 +22,19 @@ const Datatable = ({ posts, setType }) => {
         { length: totalPages },
         (_, index) => index + 1
     );
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
+    const handleDelete = (id) => {
+        deletePost(id).then(() => {
+            const newPosts = posts.filter((post) => post.id !== id);
+            setPosts(newPosts);
+            swal.success('Post deleted successfully' , 1000);
+        })
+    }
+
 
     return (
         <div>
@@ -62,8 +76,6 @@ const Datatable = ({ posts, setType }) => {
                                     data-bs-toggle="modal"
                                     data-bs-target="#exampleModal"
                                     onClick={() => {
-                                        console.log(post.id);
-
                                         setType('edit');
                                         setPostID(post.id);
                                         setUserID(post.userId);
@@ -73,7 +85,7 @@ const Datatable = ({ posts, setType }) => {
                                 >
                                     Edit
                                 </button>
-                                <button className="btn btn-danger btn-delete  mt-2">
+                                <button className="btn btn-danger btn-delete  mt-2" onClick={() => handleDelete(post.id)}>
                                     Delete
                                 </button>
                             </td>

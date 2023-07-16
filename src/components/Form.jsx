@@ -20,8 +20,7 @@ const Form = ({ type }) => {
 
         if (type === 'add') {
             addPost(data).then((response) => {
-                console.log("***", response);
-                
+                                
                 const {body, title, userID} = response;
 
                 resetForm();
@@ -56,7 +55,7 @@ const Form = ({ type }) => {
                 setPosts(newPosts);
             } )
         }
-
+        swal.success('Post saved successfully' , 1000);
         resetForm();
         closeModal();
     };

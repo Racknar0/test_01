@@ -16,7 +16,6 @@ const getAllPost = async () => {
 const addPost = async (post) => {
     try {
         const response = await axiosClient.post(url, post);
-        console.log('response----------', response.data);
         return response.data;
     } catch (error) {
         console.log('error', error);
@@ -32,27 +31,14 @@ const updatePost = async (post) => {
     }
 };
 
-
-/* const getProduct = async (id) => {
-    try {
-        const response = await axiosClient.get(`${url}/${id}`);
-        return response.data;
-    } catch (error) {
-        console.log('error', error);
-    }
-};
-
-
-
-
-
-const deleteProduct = async (id) => {
+const deletePost = async (id) => {
     try {
         const response = await axiosClient.del(`${url}/${id}`);
         return response.data;
     } catch (error) {
         console.log('error', error);
     }
-}; */
+}
 
-export { getAllPost, addPost , updatePost/* , getProduct, , updateProduct, deleteProduct */ };
+
+export { getAllPost, addPost , updatePost , deletePost };
